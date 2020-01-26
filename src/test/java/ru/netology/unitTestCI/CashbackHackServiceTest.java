@@ -2,6 +2,8 @@ package ru.netology.unitTestCI;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,4 +40,14 @@ class CashbackHackServiceTest {
         CashbackHackService service = new CashbackHackService();
         assertThrows(IllegalArgumentException.class, () -> service.remain(-5));
     }
+   /* @ParameterizedTest
+    @CsvFileSource(resources = "/BonusData.csv", numLinesToSkip = 1)
+    void shouldCalculateBonus(int amount, int expected, String message) {
+        CashbackHackService service = new CashbackHackService();
+
+        int actual = service.remain(amount);
+
+        assertEquals(expected, actual, message);
+    }*/
+
 }
